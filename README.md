@@ -3,10 +3,10 @@
 ***
 
 <p align="center">
-🎉 Ultra-simplified explanation to design patterns! 🎉
+🎉 设计模式的极简单解释! 🎉
 </p>
 <p align="center">
-A topic that can easily make anyone's mind wobble. Here I try to make them stick in to your mind (and maybe mine) by explaining them in the <i>simplest</i> way possible.
+一个很容易让人头脑动摇的话题. 这里，我将试着将设计模式用<i>尽可能简单</i>的方式，灌输到你的脑子里，也可能是我的脑子里。
 </p>
 
 
@@ -16,62 +16,64 @@ A topic that can easily make anyone's mind wobble. Here I try to make them stick
 
 ***
 
-🚀 Introduction
+🚀 简介
 =================
 
-Design patterns are solutions to recurring problems; **guidelines on how to tackle certain problems**. They are not classes, packages or libraries that you can plug into your application and wait for the magic to happen. These are, rather, guidelines on how to tackle certain problems in certain situations.
+设计模式是重复出现的问题的解决方法；**是解决这些问题的指导方针**。设计模式不是简单的类、第三方包或者第三方库，你不能即插即用。相反地，设计模式是告诉你如何在特殊情形下解决特殊问题的方法。
 
-> Design patterns are solutions to recurring problems; guidelines on how to tackle certain problems
 
-Wikipedia describes them as
+> 设计模式是重复出现的问题的解决方法；是解决这些问题的指导方针。
 
-> In software engineering, a software design pattern is a general reusable solution to a commonly occurring problem within a given context in software design. It is not a finished design that can be transformed directly into source or machine code. It is a description or template for how to solve a problem that can be used in many different situations.
+维基百科的描述：
 
-⚠️ Be Careful
+> 在软件工程中，一种软件设计模式是指，给定一个上下文环境的在软件设计中，通常可复用的，对一个常见问题的解决方案。他不是一个可以直接转换为源代码或者机器代码的完整的实现。他是一种问题解决方法的描述或者说模板，并且可以用在很多情形之下。
+
+⚠️ 注意：
 -----------------
-- Design patterns are not a silver bullet to all your problems.
-- Do not try to force them; bad things are supposed to happen, if done so. Keep in mind that design patterns are solutions **to** problems, not solutions **finding** problems; so don't overthink.
-- If used in a correct place in a correct manner, they can prove to be a savior; or else they can result in a horrible mess of a code.
+- 设计模式不是解决你所有问题的万金油。
+- 不要尝试硬着头皮强行去用设计模式；这样做会造成很蛋疼的后果。记住，设计模式是解决问题的方法，不是产生问题的方法。所以，不要想太多。
+- 如果设计模式以合适的方式用在合适的地方，他们将会是救世主；反之，他会让你的代码陷入恐怖的混乱之中。
 
-> Also note that the code samples below are in PHP-7, however this shouldn't stop you because the concepts are same anyways. Plus the **support for other languages is underway**.
+> 值得注意的是，以下的代码例子都使用全世界最好的语言 PHP-7, 然而这不应该阻碍你，因为概念都是一致的，无关语言。正在添加其他语言的支持。
 
-Types of Design Patterns
+设计模式的类型
 -----------------
 
-* [Creational](#creational-design-patterns)
-* [Structural](#structural-design-patterns)
-* [Behavioral](#behavioral-design-patterns)
+* [Creational 创建类型](#creational-design-patterns)
+* [Structural 结构类型](#structural-design-patterns)
+* [Behavioral 行为类型](#behavioral-design-patterns)
 
-Creational Design Patterns
+Creational 创建类型的设计模式
 ==========================
 
-In plain words
-> Creational patterns are focused towards how to instantiate an object or group of related objects.
+简单来说
+> 创建类型的设计模式专注于怎么实例化一个或者多个相关的对象。
 
-Wikipedia says
-> In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
+维基百科上写道
+> 在软件工程中，创建类型的设计模式是解决对象创建机制，试图以合适的方式创建对象的设计模式。基本的对象创建形式会导致设计问题或者增加设计的复杂度。创建类型的设计模式通过对对象某些方面的控制，来解决这个问题。
 
- * [Simple Factory](#-simple-factory)
- * [Factory Method](#-factory-method)
- * [Abstract Factory](#-abstract-factory)
- * [Builder](#-builder)
- * [Prototype](#-prototype)
- * [Singleton](#-singleton)
+ * [Simple Factory 简单工厂模式](#-simple-factory)
+ * [Factory Method 工厂模式](#-factory-method)
+ * [Abstract Factory 抽象工厂模式](#-abstract-factory)
+ * [Builder 建造者模式](#-builder)
+ * [Prototype 原型模式](#-prototype)
+ * [Singleton 单例模式](#-singleton)
 
-🏠 Simple Factory
+🏠 简单工厂模式
 --------------
-Real world example
-> Consider, you are building a house and you need doors. It would be a mess if every time you need a door, you put on your carpenter clothes and start making a door in your house. Instead you get it made from a factory.
+真实世界的例子
 
-In plain words
-> Simple factory simply generates an instance for client without exposing any instantiation logic to the client
+> 当你要建造一个房子，然后这时候需要门。假设，如果你每需要一扇门，你都要拿出相应的工具，来制造所需要的门，这将会非常烦。相反，你可以交给生成门的工厂去做这件事情。
 
-Wikipedia says
-> In object-oriented programming (OOP), a factory is an object for creating other objects – formally a factory is a function or method that returns objects of a varying prototype or class from some method call, which is assumed to be "new".
+简单来说
+> Simple factory 简单工厂模式生成一个对象实例，但不暴露任何实例化这个对象的逻辑给客户端。
 
-**Programmatic Example**
+维基百科写道
+> 在面向对象编程，一个工厂(factory)是指那些用来创建对象的对象 —— 在形式上，一个工厂是一个函数或者(对象的)方法，它从某个调用返回不同的原型的对象或类的对象，这个过程被认为是new(创建)
 
-First of all we have a door interface and the implementation
+**编程示例**
+
+首先，我们拥有一个door(门)的接口和实现
 ```php
 interface Door
 {
@@ -101,7 +103,7 @@ class WoodenDoor implements Door
     }
 }
 ```
-Then we have our door factory that makes the door and returns it
+然后我们有一个“生成”门的工厂，并且返回门的实例
 ```php
 class DoorFactory
 {
@@ -111,32 +113,32 @@ class DoorFactory
     }
 }
 ```
-And then it can be used as
+然后，我们可以这样使用
 ```php
 $door = DoorFactory::makeDoor(100, 200);
 echo 'Width: ' . $door->getWidth();
 echo 'Height: ' . $door->getHeight();
 ```
 
-**When to Use?**
+**什么时候使用?**
 
-When creating an object is not just a few assignments and involves some logic, it makes sense to put it in a dedicated factory instead of repeating the same code everywhere.
+当创建一个对象不是简单的几句赋值，并且需要调用一些多级时候，把它放在一个专门的工厂而不是在任何地方重复相同的代码是有意义的。
 
-🏭 Factory Method
+🏭 工厂模式
 --------------
 
-Real world example
-> Consider the case of a hiring manager. It is impossible for one person to interview for each of the positions. Based on the job opening, she has to decide and delegate the interview steps to different people.
+真实世界的例子
+> 考虑公司的HR（招聘组经理）。 HR一个人不可能为每个职位进行面试。 根据职位，她必须决定并将面试步骤委托给不同的人。
 
-In plain words
-> It provides a way to delegate the instantiation logic to child classes.
+简单来说
+> 工厂模式提供一个方式来代理子类的实例化逻辑。
 
-Wikipedia says
-> In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+维基百科写道
+> 在基于类的编程中，工厂模式是一种解决“创建对象且不指定对象的具体类”问题的创建类型设计模式。实现这种方式，是通过调用一个工厂方法来创建对象而不是通过构造函数，这个工厂方法或者是在接口声明然后在子类实现，或者在基类实现然后在子类被重写。
 
- **Programmatic Example**
+ **编程示例**
 
-Taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
+按照我们上述的招聘组经理的例子。首先我们要有一个面试官的接口，然后是一些对这个接口的实现。
 
 ```php
 interface Interviewer
@@ -161,7 +163,7 @@ class CommunityExecutive implements Interviewer
 }
 ```
 
-Now let us create our `HiringManager`
+现在我们来写 `招聘组经理`
 
 ```php
 abstract class HiringManager
@@ -178,7 +180,7 @@ abstract class HiringManager
 }
 
 ```
-Now any child can extend it and provide the required interviewer
+现在，所有的子类能够扩展之，然后提供相应需要的面试官。
 ```php
 class DevelopmentManager extends HiringManager
 {
@@ -196,7 +198,7 @@ class MarketingManager extends HiringManager
     }
 }
 ```
-and then it can be used as
+现在你能够这样使用
 
 ```php
 $devManager = new DevelopmentManager();
@@ -206,25 +208,29 @@ $marketingManager = new MarketingManager();
 $marketingManager->takeInterview(); // Output: Asking about community building.
 ```
 
-**When to use?**
+**什么时候使用?**
 
-Useful when there is some generic processing in a class but the required sub-class is dynamically decided at runtime. Or putting it in other words, when the client doesn't know what exact sub-class it might need.
+当一个类有一些通用的处理，但是需要这些处理的子类是在运行时动态确定的。换种说法，当客户端不知道要使用哪个确切的子类时候，这种模式可能需要使用。
 
-🔨 Abstract Factory
+🔨 抽象工厂模式
 ----------------
 
-Real world example
-> Extending our door example from Simple Factory. Based on your needs you might get a wooden door from a wooden door shop, iron door from an iron shop or a PVC door from the relevant shop. Plus you might need a guy with different kind of specialities to fit the door, for example a carpenter for wooden door, welder for iron door etc. As you can see there is a dependency between the doors now, wooden door needs carpenter, iron door needs a welder etc.
+真实世界的例子
+> 扩展上述简单
+> 扩展我们在简单工厂模式讲到的“门”的例子。根据你的需求，你可能需要从“木门”商店购买“木门”，从“铁门”商店购买“钢铁门”，从“PVC门”商店购买“PVC门”。进一步来讲，对于不同类型的“门”，你会需要不同类型的工匠，比如“木门”的“木匠”，“铁门”的“焊接工”等等。因此，现在“门”之间出现了一种依赖关系，“木门”需要“木匠”，“铁门”需要“焊接工”等等。
 
-In plain words
-> A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes.
+简单来说
+> 工厂的工厂。一个将单独的的、但是却互相关联或依赖的工厂组合在一起的工厂，并且不需要指定组合的工厂们的具体类型。
+
+维基百科写道：
+> 抽象工厂提供一种封装一组单独的、拥有共同特点的工厂，并且不指定组合的工厂们的具体类型。
 
 Wikipedia says
 > The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
 
-**Programmatic Example**
+**编程示例**
 
-Translating the door example above. First of all we have our `Door` interface and some implementation for it
+翻译上述的“门”的例子。开始，我们有一个`Door`的接口，以及一些这个接口的实现。
 
 ```php
 interface Door
@@ -248,7 +254,8 @@ class IronDoor implements Door
     }
 }
 ```
-Then we have some fitting experts for each door type
+
+然后我们有适合各种“门”的专业人士。
 
 ```php
 interface DoorFittingExpert
@@ -273,7 +280,8 @@ class Carpenter implements DoorFittingExpert
 }
 ```
 
-Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
+现在我们写我们的抽象工厂来负责制造一个系列的相关对象。也就是说：“木门工厂”将会制造“木门”以及“木门”专业人士；“铁门工厂”将会制造“铁门”以及“铁门”专业人士
+
 ```php
 interface DoorFactory
 {
@@ -281,7 +289,7 @@ interface DoorFactory
     public function makeFittingExpert(): DoorFittingExpert;
 }
 
-// Wooden factory to return carpenter and wooden door
+// 木门工厂返回“木匠”和“木门”
 class WoodenDoorFactory implements DoorFactory
 {
     public function makeDoor(): Door
@@ -295,7 +303,7 @@ class WoodenDoorFactory implements DoorFactory
     }
 }
 
-// Iron door factory to get iron door and the relevant fitting expert
+// 铁门工厂返回“焊接工”和“铁门”
 class IronDoorFactory implements DoorFactory
 {
     public function makeDoor(): Door
@@ -309,7 +317,7 @@ class IronDoorFactory implements DoorFactory
     }
 }
 ```
-And then it can be used as
+然后，就能够这样使用
 ```php
 $woodenFactory = new WoodenDoorFactory();
 
@@ -329,7 +337,8 @@ $door->getDescription();  // Output: I am an iron door
 $expert->getDescription(); // Output: I can only fit iron doors
 ```
 
-As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
+正如你所见，“木门工厂”封装了`木匠`和`木门`。因此他帮助我们确定对于每个生成出来的们，我们都不会搞错其对应的专业人士。
+
 
 **When to use?**
 
